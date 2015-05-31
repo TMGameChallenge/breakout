@@ -128,7 +128,7 @@ function update () {
 
     queen = bricks.getRandom();
     queenI = bricks.getIndex(queen);
-    if (queen.alive === true && Math.random() * 200000 < score) {
+    if (queen.alive === true && Math.random() * 200000 < Math.max(score, 1500)) {
         if (queenI % 15 !=  0 && !(bricks.getChildAt(queenI - 1).alive)) {
             bricks.getChildAt(queenI - 1).revive();
             score -= 10;
@@ -148,7 +148,7 @@ function releaseBall () {
     if (ballOnPaddle)
     {
         ballOnPaddle = false;
-        ball.body.velocity.y = -300;
+        ball.body.velocity.y = -400;
         ball.body.velocity.x = -75;
         ball.animations.play('spin');
         introText.visible = false;
